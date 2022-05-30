@@ -53,28 +53,35 @@ const Navbar = ({ children }) => {
               </div>
             </div>
           </div>
+          {children}
         </div>
-        {children}
+
         <div class="drawer-side">
           <label for="my-drawer-3" class="drawer-overlay"></label>
           <ul
             class="menu p-4 overflow-y-auto w-80"
             style={{ background: "#fbd062" }}
           >
-            <ul class="menu menu-horizontal">
-              <CoustomLink className="mr-6" to="/">
+            <li>
+              <CoustomLink className="mr-6" to="/home">
                 home
               </CoustomLink>
+            </li>
+            <li>
               <CoustomLink className="mr-6" to="/portifolio">
                 Our Portfolio
               </CoustomLink>
+            </li>
+            <li>
               <CoustomLink className="mr-6" to="/team">
                 Our Team
               </CoustomLink>
+            </li>
+            <li>
               <CoustomLink className="mr-6" to="/contuct">
                 Contact Us
               </CoustomLink>
-            </ul>
+            </li>
           </ul>
         </div>
       </div>

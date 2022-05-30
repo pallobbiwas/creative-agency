@@ -1,24 +1,23 @@
 import React from "react";
+import fram from "../../images/logos/Frame.png";
 import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className="banner-div pt-20">
+    <div className="banner-div pt-32">
       <div className="container mx-auto">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint libero
-          doloribus eum sunt ratione veniam necessitatibus a ea quas quos.
-          Placeat fugiat maxime ipsa sed a officia laudantium dignissimos beatae
-          sunt? Facilis sequi unde explicabo deserunt fugiat. Rem, placeat eius
-          pariatur obcaecati praesentium iure nesciunt repellat sint voluptas
-          beatae aspernatur odit unde! Numquam saepe dolorem nesciunt nihil
-          impedit provident. Possimus dolore inventore distinctio adipisci esse
-          sapiente dolorem obcaecati eveniet. Fugiat quisquam quos ut,
-          architecto laudantium ipsam ex qui omnis iste sed expedita beatae
-          incidunt dolorum asperiores minima assumenda consequuntur recusandae
-          placeat quidem cumque dolores quibusdam consectetur enim? Quia,
-          possimus sit?
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mr-6 text-center md:text-left">
+            <h2 className="text-6xl font-bold" style={{color:"#111430"}}>Let’s Grow Your Brand To The Next Level</h2>
+            <p className="my-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas itaque harum maiores consequatur beatae provident nesciunt culpa nemo? Mollitia, recusandae. Suscipit, esse laudantium? Dolores ratione fugit dignissimos tempore molestiae voluptate.</p>
+            <div>
+              <button style={{background:"#111430"}} className=" btn rounded-md px-14">Hire me</button>
+            </div>
+          </div>
+          <div className="ml-6">
+            <img src={fram} alt="" />
+          </div>
+        </div>
       </div>
     </div>
   );
