@@ -9,7 +9,7 @@ const Brand = () => {
   return (
     <div className="container mx-auto">
       <div className="mx-20">
-        <div className="grid gris-cols-1 md:grid-cols-5 my-10">
+        <div className="grid gris-cols-1 md:grid-cols-5 my-20">
           <div>
             <img style={{width: '129px', height:'44px'}} src={slack} alt="" />
           </div>
