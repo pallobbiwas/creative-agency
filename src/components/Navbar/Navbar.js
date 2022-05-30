@@ -1,8 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 import logo from "../../images/logos/logo.png";
 import CoustomLink from "../CoustomLink/CustomLink";
+import "./Navbar.css";
 
 const Navbar = ({ children }) => {
+  const [user] = useAuthState(auth);
   return (
     <div>
       <div class="drawer drawer-end">
@@ -49,6 +54,15 @@ const Navbar = ({ children }) => {
                   <CoustomLink className="mr-6" to="/contuct">
                     Contact Us
                   </CoustomLink>
+                  {user ? (
+                    <button className="btn btn-primary ml-32 login" to="/login">
+                      Logout
+                    </button>
+                  ) : (
+                    <Link className="ml-32 login" to="/login">
+                      Login
+                    </Link>
+                  )}
                 </ul>
               </div>
             </div>
@@ -82,6 +96,13 @@ const Navbar = ({ children }) => {
                 Contact Us
               </CoustomLink>
             </li>
+            {user ? (
+              <button className=" btn btn-primary mr-6 login">Logout</button>
+            ) : (
+              <Link className="mr-6 login" to="/login">
+                Login
+              </Link>
+            )}
           </ul>
         </div>
       </div>
