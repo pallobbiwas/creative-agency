@@ -1,3 +1,4 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
@@ -7,7 +8,12 @@ import CoustomLink from "../CoustomLink/CustomLink";
 import "./Navbar.css";
 
 const Navbar = ({ children }) => {
-  const [user] = useAuthState(auth);
+  let [user] = useAuthState(auth);
+
+  const logOut = () => {
+    signOut(auth);
+  };
+
   return (
     <div>
       <div class="drawer drawer-end">
@@ -43,7 +49,7 @@ const Navbar = ({ children }) => {
               <div class="flex-none hidden lg:block">
                 <ul class="menu menu-horizontal">
                   <CoustomLink className="mr-6" to="/home">
-                    home
+                    Home
                   </CoustomLink>
                   <CoustomLink className="mr-6" to="/portifolio">
                     Our Portfolio
@@ -54,8 +60,31 @@ const Navbar = ({ children }) => {
                   <CoustomLink className="mr-6" to="/contuct">
                     Contact Us
                   </CoustomLink>
+                  {user && (
+                    <CoustomLink className="mr-6" to="/dashboard">
+                      Dashboard
+                    </CoustomLink>
+                  )}
                   {user ? (
-                    <button className="btn btn-primary ml-32 login" to="/login">
+                    <button
+                      onClick={logOut}
+                      className="btn btn-primary ml-32 login rounded-lg"
+                      to="/login"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                        />
+                      </svg>{" "}
                       Logout
                     </button>
                   ) : (
@@ -96,8 +125,29 @@ const Navbar = ({ children }) => {
                 Contact Us
               </CoustomLink>
             </li>
+            {user && (
+              <CoustomLink className="mr-6" to="/dashboard">
+                Dashboard
+              </CoustomLink>
+            )}
             {user ? (
-              <button className=" btn btn-primary mr-6 login">Logout</button>
+              <button onClick={logOut} className=" btn btn-primary mr-6 login">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
+                </svg>{" "}
+                Logout
+              </button>
             ) : (
               <Link className="mr-6 login" to="/login">
                 Login
