@@ -1,8 +1,8 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 import Brand from "./Brand";
-import ClintFeddback from "./ClintFeddback";
 import Footer from "./Footer";
+import Reviews from "./Reviews";
 import Services from "./Services";
 import Works from "./Works";
 
@@ -13,7 +13,7 @@ const Home = () => {
       <Brand />
       <Services />
       <Works />
-      <ClintFeddback />
+      <Reviews />
       <Footer />
     </div>
   );

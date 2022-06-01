@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 import img from "../../images/logos/logo.png";
 
 
@@ -9,10 +10,12 @@ const Login = () => {
   const [signInWithGoogle, guser, loading, error] = useSignInWithGoogle(auth);
 
   const[user] = useAuthState(auth);
-  const navigated = useNavigate()
+  const navigated = useNavigate();
 
-  if(user){
-      navigated('/')
+  const[token] = useToken(guser);
+
+  if(token){
+      navigated('/');
   }
 
   const googleLogin = () => {
