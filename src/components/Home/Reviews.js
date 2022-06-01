@@ -5,13 +5,7 @@ const Reviews = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        "authorization": `Bearer ${localStorage.getItem('accessToken')}`
-      },
-    })
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);

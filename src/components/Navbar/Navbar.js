@@ -12,6 +12,7 @@ const Navbar = ({ children }) => {
 
   const logOut = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken ')
   };
 
   return (

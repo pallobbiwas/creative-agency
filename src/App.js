@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Authentication/Login";
+import RequireAuth from "./components/Authentication/RequerUser";
 import Addadmin from "./components/Dashboard/Addadmin";
 import Addproducts from "./components/Dashboard/Addproducts";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -14,11 +15,17 @@ function App() {
       <Navbar>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route
+            path="/home"
+            element={
+              <RequireAuth>
+                <Home />
+              </RequireAuth>
+            }
+          ></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="myorder" element={<Myorder />}></Route>
+            {<Route path="myorder" element={<Myorder />}></Route>}
             <Route path="addservice" element={<Addproducts />}></Route>
             <Route path="adadmin" element={<Addadmin />}></Route>
           </Route>

@@ -1,7 +1,12 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+  const[user] = useAuthState(auth)
+  const[admin] = useAdmin(user)
   return (
     <div>
       <div class="drawer drawer-mobile">
@@ -23,7 +28,7 @@ const Dashboard = () => {
             class="menu p-4 overflow-y-auto w-80  text-white"
           >
             <li>
-              <Link to="/dashboard/myorder">
+              {!admin && <Link to="/dashboard/myorder">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -39,7 +44,7 @@ const Dashboard = () => {
                   />
                 </svg>
                 My order
-              </Link>
+              </Link>}
             </li>
             <li>
               <Link to="/dashboard/addservice">
