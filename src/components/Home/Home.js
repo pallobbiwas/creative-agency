@@ -4,6 +4,7 @@ import Brand from "./Brand";
 import Footer from "./Footer";
 import Reviews from "./Reviews";
 import Services from "./Services";
+import Swipers from "./Swipers";
 import Works from "./Works";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Services />
       <Works />
       <Reviews />
+      <Swipers />
       <Footer />
     </div>
   );
